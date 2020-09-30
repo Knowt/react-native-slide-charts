@@ -330,7 +330,7 @@ Data that will be displayed on the chart. This must be an array of objects with 
 </td>
 <td align="center">
 
-`string`
+`string | string[]`
 
 </td>
 <td align="center">
