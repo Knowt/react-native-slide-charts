@@ -13,7 +13,6 @@ import {
     ExtendedAnimatedValue, SlideBarChartDefaultProps, SlideBarChartComponentProps, SlideBarChartProps
 } from './utils/types'
 import { isValidDate, getDataMin, getDataMax } from './utils/range'
-import ViewOverflow from 'react-native-view-overflow';
 
 type State = {
     x: ExtendedAnimatedValue
@@ -657,53 +656,51 @@ class SlideBarChart extends Component<SlideBarChartComponentProps, State> {
             .range([height - axisHeight - paddingBottom, paddingTop + chartPaddingTop])
 
         return (
-            <ViewOverflow>
-                <View style={[
-                    styles.container,
-                    style,
-                    {
-                        height: this.state.height,
-                        width: this.state.width,
-                        paddingHorizontal: 0,
-                        paddingVertical: 0,
-                        paddingTop: 0,
-                        paddingBottom: 0,
-                        paddingLeft: 0,
-                        paddingRight: 0,
-                    }
-                ]}>
-                    <BarChart
-                        data={data}
-                        width={width}
-                        height={height}
-                        scaleY={this.scaleY}
-                        yRange={yRangeCalculated}
-                        scaleX={this.scaleX}
-                        axisWidth={axisWidth}
-                        axisHeight={axisHeight}
-                        renderFillGradient={renderFillGradient}
-                        renderSelectedFillGradient={renderSelectedFillGradient}
-                        paddingLeft={paddingLeft}
-                        paddingRight={paddingRight}
-                        paddingTop={paddingTop}
-                        paddingBottom={paddingBottom}
-                        barSelectedIndex={this.state.selectedBarNumber}
-                        barWidth={barWidth}
-                        barSpacing={barSpacing}
-                        fillColor={fillColor}
-                        hideSelection={!!onPress || hideSelection}
-                        barSelectedColor={barSelectedColor}
-                        animated={animated}
-                        yAxisProps={yAxisProps}
-                        xAxisProps={xAxisProps}
-                    />
-                    {!onPress && <ToolTip
-                        ref={this.toolTip}
-                        {...toolTipProps}
-                    />}
-                    {this.renderTouchable()}
-                </View>
-            </ViewOverflow>
+            <View style={[
+                styles.container,
+                style,
+                {
+                    height: this.state.height,
+                    width: this.state.width,
+                    paddingHorizontal: 0,
+                    paddingVertical: 0,
+                    paddingTop: 0,
+                    paddingBottom: 0,
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                }
+            ]}>
+                <BarChart
+                    data={data}
+                    width={width}
+                    height={height}
+                    scaleY={this.scaleY}
+                    yRange={yRangeCalculated}
+                    scaleX={this.scaleX}
+                    axisWidth={axisWidth}
+                    axisHeight={axisHeight}
+                    renderFillGradient={renderFillGradient}
+                    renderSelectedFillGradient={renderSelectedFillGradient}
+                    paddingLeft={paddingLeft}
+                    paddingRight={paddingRight}
+                    paddingTop={paddingTop}
+                    paddingBottom={paddingBottom}
+                    barSelectedIndex={this.state.selectedBarNumber}
+                    barWidth={barWidth}
+                    barSpacing={barSpacing}
+                    fillColor={fillColor}
+                    hideSelection={!!onPress || hideSelection}
+                    barSelectedColor={barSelectedColor}
+                    animated={animated}
+                    yAxisProps={yAxisProps}
+                    xAxisProps={xAxisProps}
+                />
+                {!onPress && <ToolTip
+                    ref={this.toolTip}
+                    {...toolTipProps}
+                />}
+                {this.renderTouchable()}
+            </View>
         )
     }
 }

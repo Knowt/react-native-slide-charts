@@ -15,7 +15,6 @@ import { isAndroid, vw } from './utils/platform'
 import { interpolatePath } from 'd3-interpolate-path'
 import { ExtendedAnimatedValue, SlideAreaChartComponentProps, SlideAreaChartDefaultProps, SlideAreaChartProps } from './utils/types'
 import { isValidDate, getDataMin, getDataMax } from './utils/range'
-import ViewOverflow from 'react-native-view-overflow';
 
 type State = {
     x: ExtendedAnimatedValue
@@ -603,54 +602,52 @@ class SlideAreaChart extends Component<SlideAreaChartComponentProps, State> {
             this.calculateLine()
 
         return (
-            <ViewOverflow>
-                <View style={[
-                    styles.container,
-                    style,
-                    {
-                        height,
-                        width,
-                        paddingHorizontal: 0,
-                        paddingVertical: 0,
-                        paddingTop: 0,
-                        paddingBottom: 0,
-                        paddingLeft: 0,
-                        paddingRight: 0,
-                    }
-                ]}>
-                    <AreaChart
-                        ref={this.chart}
-                        data={data}
-                        width={width}
-                        height={height}
-                        line={startLine}
-                        scaleY={this.scaleY}
-                        yRange={yRangeCalculated}
-                        scaleX={this.scaleX}
-                        axisWidth={axisWidth}
-                        axisHeight={axisHeight}
-                        renderFillGradient={renderFillGradient}
-                        fillColor={fillColor}
-                        chartLineColor={chartLineColor}
-                        chartLineWidth={chartLineWidth}
-                        paddingLeft={paddingLeft}
-                        paddingRight={paddingRight}
-                        paddingBottom={paddingBottom}
-                        paddingTop={paddingTop}
-                        xAxisProps={xAxisProps}
-                        yAxisProps={yAxisProps}
-                    />
-                    {!onPress && <Cursor
-                        ref={this.cursor}
-                        {...combinedCursorProps}
-                    />}
-                    {!onPress && <ToolTip
-                        ref={this.toolTip}
-                        {...toolTipProps}
-                    />}
-                    {this.renderTouchable()}
-                </View>
-            </ViewOverflow>
+            <View style={[
+                styles.container,
+                style,
+                {
+                    height,
+                    width,
+                    paddingHorizontal: 0,
+                    paddingVertical: 0,
+                    paddingTop: 0,
+                    paddingBottom: 0,
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                }
+            ]}>
+                <AreaChart
+                    ref={this.chart}
+                    data={data}
+                    width={width}
+                    height={height}
+                    line={startLine}
+                    scaleY={this.scaleY}
+                    yRange={yRangeCalculated}
+                    scaleX={this.scaleX}
+                    axisWidth={axisWidth}
+                    axisHeight={axisHeight}
+                    renderFillGradient={renderFillGradient}
+                    fillColor={fillColor}
+                    chartLineColor={chartLineColor}
+                    chartLineWidth={chartLineWidth}
+                    paddingLeft={paddingLeft}
+                    paddingRight={paddingRight}
+                    paddingBottom={paddingBottom}
+                    paddingTop={paddingTop}
+                    xAxisProps={xAxisProps}
+                    yAxisProps={yAxisProps}
+                />
+                {!onPress && <Cursor
+                    ref={this.cursor}
+                    {...combinedCursorProps}
+                />}
+                {!onPress && <ToolTip
+                    ref={this.toolTip}
+                    {...toolTipProps}
+                />}
+                {this.renderTouchable()}
+            </View>
         )
     }
 }
