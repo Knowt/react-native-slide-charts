@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
     },
     square: {
         position: 'absolute',
-        top: 10,
+        top: 0,
         left: 0,
         flexDirection: 'column',
         alignItems: 'center',
